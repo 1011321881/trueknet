@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trueknet | Plataforma Universitaria</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">Trueknet</div>
+        <nav>
+            <a href="#inicio">Inicio</a>
+            <button class="btn-login" onclick="openModal('loginModal')">Entrar</button>
+            <button class="btn-register" onclick="openModal('registerModal')">Registrarse</button>
+        </nav>
+    </header>
+
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+            <h1>Intercambio Solidario Estudiantil</h1>
+            <p>Plataforma digital para promover el trueque en la comunidad académica.</p>
+            <button class="cta-button" onclick="openModal('registerModal')">Empezar ahora</button>
+        </div>
+    </section>
+
+    <div id="registerModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('registerModal')">&times;</span>
+            <h2>Registro de Usuario</h2>
+            <form action="registrar.php" method="POST">
+                <input type="text" name="nombre" placeholder="Nombre Completo" required>
+                <input type="email" name="correo" placeholder="Correo Institucional" required>
+                <select name="universidad" required>
+                    <option value="" disabled selected>Selecciona tu Universidad</option>
+                    <option value="TEINCO">TEINCO</option>
+                    <option value="Pública">Universidad Pública</option>
+                    <option value="Privada">Universidad Privada</option>
+                </select>
+                <input type="password" name="password" placeholder="Contraseña" required>
+                <button type="submit" class="btn-submit">Guardar Registro</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('loginModal')">&times;</span>
+            <h2>Iniciar Sesión</h2>
+            <form>
+                <input type="email" placeholder="Correo" required>
+                <input type="password" placeholder="Contraseña" required>
+                <button type="button" class="btn-submit" onclick="alert('Funcionalidad de login en desarrollo')">Ingresar</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function openModal(id) { document.getElementById(id).style.display = "block"; }
+        function closeModal(id) { document.getElementById(id).style.display = "none"; }
+        window.onclick = function(e) { if(e.target.className === 'modal') e.target.style.display='none'; }
+    </script>
+</body>
+</html>

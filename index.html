@@ -3,8 +3,127 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trueknet | Plataforma Universitaria</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Trueknet | Intercambio Solidario Universitario</title>
+    <style>
+        :root {
+            --primary: #2c7a7b; /* Verde profesional para sostenibilidad */
+            --secondary: #2d3748; /* Gris oscuro para texto */
+            --accent: #ed8936; /* Naranja para llamados a la acción */
+            --light: #f7fafc;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            color: var(--secondary);
+            background-color: var(--light);
+            line-height: 1.6;
+        }
+
+        /* Navegación */
+        header {
+            background: white;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        nav a {
+            margin-left: 20px;
+            text-decoration: none;
+            color: var(--secondary);
+            font-weight: 500;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 5%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: linear-gradient(135deg, #e6fffa 0%, #ffffff 100%);
+        }
+
+        .hero-content {
+            max-width: 600px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .cta-button {
+            background-color: var(--accent);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: transform 0.2s;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+        }
+
+        /* Beneficios */
+        .features {
+            padding: 60px 5%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .feature-card h3 {
+            color: var(--primary);
+        }
+
+        /* Sección de Problema/Solución */
+        .about {
+            padding: 60px 5%;
+            background-color: white;
+        }
+
+        footer {
+            background: var(--secondary);
+            color: white;
+            text-align: center;
+            padding: 40px 5%;
+        }
+
+        .authors {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
 
@@ -12,54 +131,52 @@
         <div class="logo">Trueknet</div>
         <nav>
             <a href="#inicio">Inicio</a>
-            <button class="btn-login" onclick="openModal('loginModal')">Entrar</button>
-            <button class="btn-register" onclick="openModal('registerModal')">Registrarse</button>
+            <a href="#nosotros">Nosotros</a>
+            <a href="#categorias">Categorías</a>
+            <a href="#" style="color: var(--primary)">Iniciar Sesión</a>
         </nav>
     </header>
 
     <section class="hero" id="inicio">
         <div class="hero-content">
-            <h1>Intercambio Solidario Estudiantil</h1>
-            <p>Plataforma digital para promover el trueque en la comunidad académica.</p>
-            <button class="cta-button" onclick="openModal('registerModal')">Empezar ahora</button>
+            <h1>Intercambio solidario en tu comunidad académica</h1>
+            <p>Formalizamos el trueque tradicional en un espacio digital seguro para reducir costos estudiantiles y fortalecer lazos universitarios.</p>
+            <a href="#" class="cta-button">Empezar a Intercambiar</a>
+        </div>
+        <div class="hero-image">
+            <div style="width: 300px; height: 300px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 5rem;">⇄</div>
         </div>
     </section>
 
-    <div id="registerModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('registerModal')">&times;</span>
-            <h2>Registro de Usuario</h2>
-            <form action="registrar.php" method="POST">
-                <input type="text" name="nombre" placeholder="Nombre Completo" required>
-                <input type="email" name="correo" placeholder="Correo Institucional" required>
-                <select name="universidad" required>
-                    <option value="" disabled selected>Selecciona tu Universidad</option>
-                    <option value="TEINCO">TEINCO</option>
-                    <option value="Pública">Universidad Pública</option>
-                    <option value="Privada">Universidad Privada</option>
-                </select>
-                <input type="password" name="password" placeholder="Contraseña" required>
-                <button type="submit" class="btn-submit">Guardar Registro</button>
-            </form>
+    <section class="features">
+        <div class="feature-card">
+            <h3>Sostenibilidad</h3>
+            <p>Aprovecha recursos existentes como libros, apuntes y dispositivos electrónicos para un consumo responsable[cite: 15, 30].</p>
         </div>
-    </div>
-
-    <div id="loginModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('loginModal')">&times;</span>
-            <h2>Iniciar Sesión</h2>
-            <form>
-                <input type="email" placeholder="Correo" required>
-                <input type="password" placeholder="Contraseña" required>
-                <button type="button" class="btn-submit" onclick="alert('Funcionalidad de login en desarrollo')">Ingresar</button>
-            </form>
+        <div class="feature-card">
+            <h3>Economía</h3>
+            <p>Reduce tus costos educativos mediante el intercambio directo de bienes y servicios sin necesidad de dinero[cite: 35, 37].</p>
         </div>
-    </div>
+        <div class="feature-card">
+            <h3>Comunidad</h3>
+            <p>Fortalece la confianza y la cooperación entre estudiantes de Bogotá[cite: 25, 69].</p>
+        </div>
+    </section>
 
-    <script>
-        function openModal(id) { document.getElementById(id).style.display = "block"; }
-        function closeModal(id) { document.getElementById(id).style.display = "none"; }
-        window.onclick = function(e) { if(e.target.className === 'modal') e.target.style.display='none'; }
-    </script>
+    <section class="about" id="nosotros">
+        <h2 style="text-align: center; color: var(--primary);">¿Por qué Trueknet?</h2>
+        <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+            <p>Las universidades enfrentan una alta demanda de recursos, pero las limitaciones económicas dificultan su adquisición[cite: 22]. Trueknet surge para organizar, garantizar seguridad y ampliar el acceso a dinámicas colaborativas que antes eran informales[cite: 14, 23].</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Trueknet - Corporación Tecnológica Industrial Colombiana (TEINCO)</p>
+        <div class="authors">
+            Presentado por: Mishell Amaya, Laura Bernal y Juan Rúgeles[cite: 5].<br>
+            Asignatura: Métodos de Investigación - Docente: Ever Cardenas[cite: 7, 9].
+        </div>
+    </footer>
+
 </body>
 </html>
